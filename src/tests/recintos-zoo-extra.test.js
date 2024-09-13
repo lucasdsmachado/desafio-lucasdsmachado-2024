@@ -45,6 +45,14 @@ describe('Casos adicionais dos Recintos do Zoologico', () => {
     expect(resultado.recintosViaveis[1]).toBe('Recinto 3 (espaço livre: 1 total: 7)');
     expect(resultado.recintosViaveis.length).toBe(2);
   });
+  
+  test('Deve encontrar recintos para 1 macaco', () => {
+    const resultado = new RecintosZoo().analisaRecintos('MACACO', 1);
+    expect(resultado.erro).toBeFalsy();
+    expect(resultado.recintosViaveis[0]).toBe('Recinto 1 (espaço livre: 6 total: 10)');
+    expect(resultado.recintosViaveis[1]).toBe('Recinto 3 (espaço livre: 3 total: 7)');
+    expect(resultado.recintosViaveis.length).toBe(2);
+  });
 
   test('Deve encontrar recintos para 3 macacos', () => {
     const resultado = new RecintosZoo().analisaRecintos('MACACO', 3);
